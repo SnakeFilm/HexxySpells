@@ -1,10 +1,16 @@
 package ru.snake_film.hexxyspells
 
 import at.petrak.hexcasting.api.casting.eval.CastingEnvironment
+import com.mojang.blaze3d.platform.InputConstants
+import net.minecraft.client.KeyMapping
+import net.minecraft.server.level.ServerPlayer
 import net.minecraft.world.entity.LivingEntity
+import org.lwjgl.glfw.GLFW
+import vazkii.patchouli.client.base.PersistentData
 import kotlin.math.*
 
 object HexxyUtils {
+
 
     /**
      * Рассчитывает финальный урон. Возвращает Float для совместимости с Entity.
@@ -26,40 +32,54 @@ object HexxyUtils {
 
 
     fun applySmartMediaCooldown(env: CastingEnvironment, media: Long) {
-        val caster = env.caster ?: return
-        if (caster is net.minecraft.world.entity.player.Player) {
+        val caster = env.caster as? net.minecraft.world.entity.player.Player ?: return
 
-            // 1. Рассчитываем время кулдауна
-            // За каждые 500 единиц медии — 1 тик. Минимум 10 тиков.
-            val ticks = (media / 1).toInt().coerceAtLeast(10)
 
-            // 2. Список ключевых слов для блокировки (с добавлением побрякушки и штуковины)
-            val itemsToBlock = listOf(
-                "trinket", "artifact", "talisman", "thought_knot",
-                "focus", "spellbook", "bauble", "shackme", "pawn"
-            )
+        val ticks = (media / 1000).toInt().coerceAtLeast(10)
 
-            // Функция проверки: содержит ли имя предмета запрещенное слово
-            fun shouldBlock(stack: net.minecraft.world.item.ItemStack): Boolean {
-                if (stack.isEmpty) return false
+
+        val itemsToBlock = listOf(
+            "trinket", "artifact", "talisman", "thought_knot",
+            "focus", "spellbook", "bauble", "cypher", "pawn", "wand"
+        )
+
+        fun processStack(stack: net.minecraft.world.item.ItemStack) {
+            if (!stack.isEmpty) {
                 val name = stack.item.descriptionId.lowercase()
-                return itemsToBlock.any { name.contains(it) }
-            }
-
-            // 3. Проверяем обе руки
-            val mainHand = caster.mainHandItem
-            val offHand = caster.offhandItem
-
-            if (shouldBlock(mainHand)) {
-                caster.cooldowns.addCooldown(mainHand.item, ticks)
-            }
-
-            if (shouldBlock(offHand)) {
-                caster.cooldowns.addCooldown(offHand.item, ticks)
+                // Если предмет содержит слово из списка
+                if (itemsToBlock.any { name.contains(it) }) {
+                    // Накладываем кулдаун именно на этот предмет
+                    caster.cooldowns.addCooldown(stack.item, ticks)
+                }
             }
         }
+
+        // 3. ПРОВЕРЯЕМ ОБЕ РУКИ ВСЕГДА
+        processStack(caster.mainHandItem)
+        processStack(caster.offhandItem)
+    }
+    /*fun getEffectiveSchool(player: ServerPlayer, requestedSchool: String): String? {
+        val currentElement = player.persistentData.getString("hexxyspells:current_element").ifEmpty { "spirit" }
+
+        return if (ElementalRegistry.g(currentElement) == ElementalRegistry.get(requestedSchool)) {
+            requestedSchool
+        } else {
+            null // Если стихия не подходит, возвращаем null
+        }
+    }*/
+    object ElementalRegistry {
+        const val SPIRIT = "spirit" // Ваниль / По умолчанию
+        const val FIRE = "fire"
+        const val WATER = "water"
+        const val AIR = "air"
+        const val EARTH = "earth"
+        const val DARK = "dark"
+
+        // Список всех стихий для циклов или проверок
+        val ALL = listOf(SPIRIT, FIRE, WATER, AIR, EARTH, DARK)
+    }
     }
 
-    }
+
 
 

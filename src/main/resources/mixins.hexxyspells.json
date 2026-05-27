@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "refmap": "hexxyspells.refmap.json",
+  "package": "ru.snake_film.hexxyspells.elements.elemental_mixins",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "MixinPatternCapture"
+  ],
+  "client": [
+    "MixinGuiSpellcasting"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

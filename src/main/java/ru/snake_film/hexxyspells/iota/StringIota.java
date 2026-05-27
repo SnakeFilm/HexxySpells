@@ -38,6 +38,19 @@ public class StringIota extends Iota {
         tag.putString("string_value", this.getString());
         return tag;
     }
+    public static int getSchoolColor(String school) {
+        return switch (school.toLowerCase()) {
+            case "fire" -> 0xff_e86500;    // Красный
+            case "ice" -> 0xff_55ffff;     // Голубой
+            case "blood" -> 0xff_aa0000;   // Темно-красный
+            case "ender" -> 0xff_aa00ff;   // Фиолетовый
+            case "holy" -> 0xff_ffff55;    // Желтый
+            case "lightning" -> 0xff_5555ff; // Синий
+            case "nature" -> 0xff_55ff55;  // Зеленый
+            case "evocation" -> 0xff_5500aa; // Пурпурный
+            default -> 0xff_ffffff;        // Белый
+        };
+    }
 
     // Класс-десериализатор (как превратить NBT обратно в объект)
     private static class Type extends IotaType<StringIota> {
@@ -70,17 +83,5 @@ public class StringIota extends Iota {
         }
 
         // Вспомогательный метод для выбора цвета
-        private int getSchoolColor(String school) {
-            return switch (school.toLowerCase()) {
-                case "fire" -> 0xff_e86500;    // Красный
-                case "ice" -> 0xff_55ffff;     // Голубой
-                case "blood" -> 0xff_aa0000;   // Темно-красный
-                case "ender" -> 0xff_aa00ff;   // Фиолетовый
-                case "holy" -> 0xff_ffff55;    // Желтый
-                case "lightning" -> 0xff_5555ff; // Синий
-                case "nature" -> 0xff_55ff55;  // Зеленый
-                case "evocation" -> 0xff_5500aa; // Пурпурный
-                default -> 0xff_ffffff;        // Белый
-            };
-        }
+
     }}
