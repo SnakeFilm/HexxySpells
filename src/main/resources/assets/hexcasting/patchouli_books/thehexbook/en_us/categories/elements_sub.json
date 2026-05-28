@@ -1,0 +1,7 @@
+{
+  "name": "hexcasting.category.hexxyspells:elements_sub",
+  "description": "hexcasting.category.hexxyspells:elements_sub.desc",
+  "parent": "hexcasting:main_category",
+  "icon": "minecraft:blaze_powder",
+  "sortnum": 7
+}

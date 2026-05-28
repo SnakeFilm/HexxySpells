@@ -68,15 +68,13 @@ object AirElement : IElementalSchool {
         val normalizedDir = dir.normalize()
 
         when (index) {
-            1 -> { // ААРД / GUST
+            1 -> { // AARD
                 val gust = io.redspace.ironsspellbooks.registries.EntityRegistry.GUST_COLLIDER.get().create(world)
                 if (gust != null) {
                     gust.owner = caster
-                    // Устанавливаем позицию чуть впереди кастера
                     val spawnPos = caster.eyePosition.add(normalizedDir.scale(1.5))
                     gust.setPos(spawnPos.x, spawnPos.y - 0.5, spawnPos.z)
 
-                    // Задаем движение колайдеру Ирона
                     gust.deltaMovement = normalizedDir.scale(0.8)
                     //gust.setRange((5.0 + power).toFloat())
 
@@ -85,7 +83,8 @@ object AirElement : IElementalSchool {
                 }
             }
 
-            2 -> { // VOLT STRIKE / CHAIN LIGHTNING
+            /*
+            2 -> { // VOLT STRIKE / CHAIN LIGHTNING CRASHING MC!!!
                 val maxRange = 16.0 + power
                 // Используем ProjectileUtil или ванильный поиск сущностей по вектору взгляда
                 val lookVec = caster.lookAngle
@@ -123,7 +122,9 @@ object AirElement : IElementalSchool {
                         world.addFreshEntity(lightning)
                     }
                 }
-            }}}
+
+             */
+            }}
     override fun createContinuousEffect(index: Int, world: Level, caster: LivingEntity, direction: Vec3, power: Double, duration: Int) {
         val entity = ChannelingEffectEntity(world, caster, "air", power, duration, index, BeamUtils.BeamType.CONE)
 
@@ -131,7 +132,6 @@ object AirElement : IElementalSchool {
             1 -> { // Aero Burst
                 entity.behavior = BeamUtils.BeamType.CONE
 
-                    //entity.setParticleType(ParticleTypes.SWEEP_ATTACK)
                 entity.setSoundEvent(SoundRegistry.GUST_CAST.get())
             }
             2 -> { // Vacuum Link (Луч)
@@ -153,7 +153,6 @@ object AirElement : IElementalSchool {
             5 -> { // Thunderbolt (Луч-разряд)
                 entity.behavior = BeamUtils.BeamType.BEAM
                 entity.setParticleType(ParticleHelper.ELECTRICITY)
-                // Используем визуальный луч, он выглядит как тонкая линия тока
                 entity.setVisualEntityType(EntityRegistry.RAY_OF_FROST_VISUAL_ENTITY.get())
                 entity.setSoundEvent(SoundRegistry.LIGHTNING_LANCE_CAST.get())
             }

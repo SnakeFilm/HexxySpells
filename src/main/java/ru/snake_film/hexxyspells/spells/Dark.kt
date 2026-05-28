@@ -42,20 +42,20 @@ object DarkElement : IElementalSchool {
         val dmg = damage.toFloat()
 
         when (index) {
-            1 -> { // Щупальца Бездны (Sculk Tentacles)
+            1 -> { // (Sculk Tentacles)
                 val tentacles = io.redspace.ironsspellbooks.registries.EntityRegistry.SCULK_TENTACLE.get().create(world)
                 if (tentacles != null) {
                     tentacles.owner = caster
                     tentacles.setPos(pos.x, pos.y, pos.z)
                     world.addFreshEntity(tentacles)
+
                 }
             }
-            2 -> { // Сингулярность Энда (Black Hole)
+            2 -> { // (Black Hole)
                 val blackHole = io.redspace.ironsspellbooks.registries.EntityRegistry.BLACK_HOLE.get().create(world)
                 if (blackHole != null) {
                     blackHole.owner = caster
                     blackHole.setPos(pos.x, pos.y, pos.z)
-                    // Настраиваем радиус засасывания в зависимости от силы урона
                     blackHole.radius = (2.0 + (damage * 0.3)).toFloat()
                     world.addFreshEntity(blackHole)
                 }
@@ -74,7 +74,6 @@ object DarkElement : IElementalSchool {
                 val hitResult = caster.pick(maxRange, 1.0f, false)
                 val endPos = hitResult.location
 
-                // Спавним готовую сущность визуала Бездны Ирона
                 val voidRay = io.redspace.ironsspellbooks.registries.EntityRegistry.ELDRITCH_BLAST_VISUAL_ENTITY.get().create(world)
                 if (voidRay != null) {
                     voidRay.setPos(caster.x, caster.eyeY - 0.3, caster.z)

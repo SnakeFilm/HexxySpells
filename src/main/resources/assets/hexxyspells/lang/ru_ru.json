@@ -1,0 +1,46 @@
+{
+  "hexcasting.category.hexxyspells:main_category": "Стихийное Заклинательство",
+  "hexcasting.category.hexxyspells:main_category.desc": "Система сплетения природных стихий с математической точностью гексов. ЭТО АЛЬФА ВЕРСИЯ!",
+
+  "hexcasting.category.hexxyspells:elements_sub": "Стихии",
+  "hexcasting.category.hexxyspells:elements_sub.desc": "Паттерны настройки внутреннего фокуса на определённый тип природной энергии. Изменяют свойства последующих форм заклинаний.",
+
+  "hexcasting.category.hexxyspells:weaving_sub": "Искусство Плетения",
+  "hexcasting.category.hexxyspells:weaving_sub.desc": "Методы проявления воли в физическом мире. Формирование стабильных проекций и летящих гексагональных матриц.",
+
+  "hexcasting.category.hexxyspells:spells_sub": "Формы Заклинаний",
+  "hexcasting.category.hexxyspells:spells_sub.desc": "Универсальные конструкты, направляющие выбранную стихию в нужную форму.",
+
+  "hexcasting.action.hexxyspells:schoolspirit": "Настройка: Дух",
+  "hexcasting.page.hexxyspells:schoolspirit.desc": "Настраивает фокус на энергию Духа. Изменяет свойства последующих форм заклинаний на стихию Духа.$(br2)Стоимость: $(b)0 медиа$()",
+
+  "hexcasting.action.hexxyspells:schoolfire": "Настройка: Огонь",
+  "hexcasting.page.hexxyspells:schoolfire.desc": "Настраивает фокус на энергию Огня. Изменяет свойства последующих форм заклинаний на стихию Огня.$(br2)Стоимость: $(b)0 медиа$()",
+
+  "hexcasting.action.hexxyspells:schoolwater": "Настройка: Вода",
+  "hexcasting.page.hexxyspells:schoolwater.desc": "Настраивает фокус на энергию Воды. Изменяет свойства последующих форм заклинаний на стихию Воды.$(br2)Стоимость: $(b)0 медиа$()",
+
+  "hexcasting.action.hexxyspells:schoolearth": "Настройка: Земля",
+  "hexcasting.page.hexxyspells:schoolearth.desc": "Настраивает фокус на энергию Земли. Изменяет свойства последующих форм заклинаний на стихию Земли.$(br2)Стоимость: $(b)0 медиа$()",
+
+  "hexcasting.action.hexxyspells:schoolair": "Настройка: Воздух",
+  "hexcasting.page.hexxyspells:schoolair.desc": "Настраивает фокус на энергию Воздуха. Изменяет свойства последующих форм заклинаний на стихию Воздуха.$(br2)Стоимость: $(b)0 медиа$()",
+
+  "hexcasting.action.hexxyspells:schooldark": "Настройка: Тьма",
+  "hexcasting.page.hexxyspells:schooldark.desc": "Настраивает фокус на энергию Тьмы. Изменяет свойства последующих форм заклинаний на стихию Тьмы. Наносит в 1.5 раза больше урона. Говорят, использующие Тьму постепенно сходят с ума... (WIP)$(br2)Стоимость: $(b)0 медиа$()",
+
+  "hexcasting.action.hexxyspells:spawn_flying_pattern": "Призыв Летящего Паттерна",
+  "hexcasting.page.hexxyspells:spawn_flying_pattern.desc": "Выпускает в мир летящую гексагональную матрицу. $(br2)Принимает со стека: $(br)• $(b)Список паттернов$() (LIST)$(br2)Стоимость: $(b)3 пыли медиа$()",
+
+  "hexcasting.action.hexxyspells:projectile": "Форма: Снаряд",
+  "hexcasting.page.hexxyspells:projectile.desc": "Формирует направленный сгусток активной стихии. Наносит урон, равный мощности. $(br2)Принимает со стека: $(br)• $(b)Индекс спелла$() (INT)$(br)• $(b)Силу (Мощность)$() (NUM)$(br)• $(b)Вектор направления$() (VEC)$(br2)Стоимость: $(b)Половина от квадрата мощности$()",
+
+  "hexcasting.action.hexxyspells:pointaction": "Форма: Взрыв в Точке",
+  "hexcasting.page.hexxyspells:pointaction.desc": "Вызывает мгновенный выплеск энергии в конкретных координатах мира. Наносит урон, равный мощности. $(br2)Принимает со стека: $(br)• $(b)Индекс спелла$() (INT)$(br)• $(b)Силу (Мощность)$() (NUM)$(br)• $(b)Координаты цели$() (VEC)$(br2)Стоимость: $(b)Половина от квадрата мощности$()",
+
+  "hexcasting.action.hexxyspells:continuousaction": "Форма: Поток",
+  "hexcasting.page.hexxyspells:continuousaction.desc": "Поддерживаемый потоковый луч или конус в направлении взгляда. Наносит урон, равный мощности. $(br2)Принимает со стека: $(br)• $(b)Индекс спелла$() (INT)$(br)• $(b)Силу (Мощность)$() (NUM)$(br)• $(b)Вектор взгляда$() (VEC)$(br2)Стоимость: $(b)Половина от квадрата мощности$()",
+
+  "hexcasting.action.hexxyspells:instantaction": "Форма: Мгновенное действие",
+  "hexcasting.page.hexxyspells:instantaction.desc": "Проявляет заклинание через мгновенный вызов магического объекта или существа в целевой позиции. Наносит урон, равный мощности. $(br2)Принимает со стека: $(br)• $(b)Индекс спелла$() (INT)$(br)• $(b)Силу (Мощность)$() (NUM)$(br)• $(b)Вектор$() (VEC)$(br2)Стоимость: $(b)Половина от квадрата мощности$()"
+}

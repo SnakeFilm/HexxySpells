@@ -1,0 +1,15 @@
+{
+  "name": "hexcasting.action.hexxyspells:schoolfire",
+  "category": "hexcasting:elements_sub",
+  "icon": "minecraft:magma_cream",
+  "pages": [
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexxyspells:schoolfire",
+      "anchor": "hexxyspells:schoolfire",
+      "input": "[]",
+      "output": "[]",
+      "text": "hexcasting.page.hexxyspells:schoolfire.desc"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "hexcasting.action.hexxyspells:continuousaction",
+  "category": "hexcasting:spells_sub",
+  "icon": "minecraft:beacon",
+  "pages": [
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexxyspells:continuousaction",
+      "anchor": "hexxyspells:continuousaction",
+      "input": "[INT, NUM, NUM]",
+      "output": "[]",
+      "text": "hexcasting.page.hexxyspells:continuousaction.desc"
+    }
+  ]
+}

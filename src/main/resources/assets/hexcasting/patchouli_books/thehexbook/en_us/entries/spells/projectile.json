@@ -1,0 +1,15 @@
+{
+  "name": "hexcasting.action.hexxyspells:projectile",
+  "category": "hexcasting:spells_sub",
+  "icon": "minecraft:firework_rocket",
+  "pages": [
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexxyspells:projectile",
+      "anchor": "hexxyspells:projectile",
+      "input": "[INT, NUM, VEC]",
+      "output": "[]",
+      "text": "hexcasting.page.hexxyspells:projectile.desc"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "hexcasting.action.hexxyspells:schooldark",
+  "category": "hexcasting:elements_sub",
+  "icon": "irons_spellbooks:upgrade_orb",
+  "pages": [
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexxyspells:schooldark",
+      "anchor": "hexxyspells:schooldark",
+      "input": "[]",
+      "output": "[]",
+      "text": "hexcasting.page.hexxyspells:schooldark.desc"
+    }
+  ]
+}

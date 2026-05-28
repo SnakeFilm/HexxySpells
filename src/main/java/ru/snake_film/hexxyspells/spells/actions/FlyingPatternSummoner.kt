@@ -20,7 +20,7 @@ object ActionSpawnFlyingPattern : ConstMediaAction
 
 
     override val argc = 1
-    override val mediaCost = 1000L
+    override val mediaCost = 3000L
 
     override fun execute(args: List<Iota>, env: CastingEnvironment): List<Iota> {
         val list = args.getList(0, argc)

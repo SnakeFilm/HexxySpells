@@ -67,11 +67,8 @@ object FireElement : IElementalSchool {
 
     override fun createContinuousEffect(index: Int, world: Level, caster: LivingEntity, direction: Vec3, power: Double, duration: Int) {
 
-        // Создаем маркер под заклинание
         val entity = ChannelingEffectEntity(world, caster, "fire", power, duration, index, BeamUtils.BeamType.CONE)
 
-        // Инициализируем параметры напрямую в зависимости от индекса заклинания
-        // Теперь компилятор идеально видит все типы данных (SoundEvent, EntityType и т.д.)
         when (index) {
             1 -> { // Fire Breath
                 entity.behavior = BeamUtils.BeamType.CONE
@@ -79,7 +76,7 @@ object FireElement : IElementalSchool {
                 entity.setVisualEntityType(null)
                 entity.setSoundEvent(io.redspace.ironsspellbooks.registries.SoundRegistry.FIRE_BREATH_LOOP.get())
             }
-            2 -> { // Твой кастомный луч (например, Frost/Fire Ray)
+            2 -> { //  Fire Ray
                 entity.behavior = BeamUtils.BeamType.BEAM
                 entity.setParticleType(net.minecraft.core.particles.ParticleTypes.SOUL_FIRE_FLAME)
                 entity.setVisualEntityType(io.redspace.ironsspellbooks.registries.EntityRegistry.RAY_OF_FROST_VISUAL_ENTITY.get())
@@ -91,16 +88,15 @@ object FireElement : IElementalSchool {
                 entity.setVisualEntityType(null)
                 entity.setSoundEvent(io.redspace.ironsspellbooks.registries.SoundRegistry.FIRE_IMPACT.get())
             }
-            else -> return // Если индекс не существует, прерываем создание
+            else -> return
         }
 
-        // Задаем позицию и спавним в мир
+
         entity.setPos(caster.x, caster.y, caster.z)
         world.addFreshEntity(entity)
     }
 
-    // Вспомогательный дата-класс для удобной инициализации 4-х параметров
-    //private data class Quadruple<A, B, C, D>(val first: A, val second: B, val third: C, val fourth: D)
+
 
     override fun createInstantEffect(index: Int, world: Level, caster: LivingEntity, dir: Vec3, power: Double) {
         if (world.isClientSide || world !is ServerLevel) return
@@ -113,12 +109,11 @@ object FireElement : IElementalSchool {
                 val range = 5.0 + power
                 val right = normalizedDir.cross(Vec3(0.0, 1.0, 0.0)).normalize()
 
-                // Вместо сотен шагов, делаем редкие сочные импульсы кастомных частиц
+
                 for (i in 1..4) {
                     val dist = i * (range / 4.0)
                     val center = startPos.add(normalizedDir.scale(dist))
 
-                    // Спавним ведьмачьи летящие искры Ирона
                     world.sendParticles(
                         io.redspace.ironsspellbooks.registries.ParticleRegistry.FIRE_PARTICLE.get(),
                         center.x, center.y, center.z,
@@ -126,14 +121,13 @@ object FireElement : IElementalSchool {
                     )
                 }
 
-                // Наносим урон + честный ПОДЖОГ
                 val box = caster.boundingBox.inflate(range)
                 world.getEntitiesOfClass(LivingEntity::class.java, box).forEach { target ->
                     if (target != caster && !target.isAlliedTo(caster)) {
                         val toTarget = target.position().subtract(startPos)
                         if (toTarget.length() <= range && toTarget.normalize().dot(normalizedDir) > 0.7) {
 
-                            target.hurt(world.damageSources().onFire(), (6.0 * power).toFloat())
+                            target.hurt(world.damageSources().onFire(), (power).toFloat())
                             // Поджигаем цель на 4 секунды * power
                             target.remainingFireTicks = (80 * power).toInt()
 

@@ -35,7 +35,7 @@ object IronPatterns {
         r.accept(PointActionPattern, ResourceLocation.fromNamespaceAndPath("hexxyspells", "pointaction"))
 
         val ContinuousActionPattern = ActionRegistryEntry(
-            HexPattern.fromAngles("aqa", HexDir.NORTH_EAST),
+            HexPattern.fromAngles("aqa", HexDir.SOUTH_EAST),
             ContinuousAction
         )
 
@@ -43,12 +43,12 @@ object IronPatterns {
         r.accept(ContinuousActionPattern, ResourceLocation.fromNamespaceAndPath("hexxyspells", "continuousaction"))
 
         val InstantActionPattern = ActionRegistryEntry(
-            HexPattern.fromAngles("ded", HexDir.SOUTH_EAST),
+            HexPattern.fromAngles("ded", HexDir.NORTH_EAST),
             InstantAction
         )
 
 
-        r.accept(InstantActionPattern, ResourceLocation.fromNamespaceAndPath("hexxyspells", "entityaction"))
+        r.accept(InstantActionPattern, ResourceLocation.fromNamespaceAndPath("hexxyspells", "instantaction"))
 
 
         //SCHOOL PATTERNS
@@ -78,7 +78,7 @@ object IronPatterns {
 
 // ENDER
         val schoolEnderEntry = ActionRegistryEntry(
-            HexPattern.fromAngles("qaqqqqqwqqq", HexDir.NORTH_EAST),
+            HexPattern.fromAngles("qaqqqqqwqq", HexDir.NORTH_EAST),
             Action.makeConstantOp(StringIota("ender")))
         r.accept(schoolEnderEntry, ResourceLocation.fromNamespaceAndPath("hexxyspells", "schoolender")) // Исправлено
 
@@ -111,28 +111,28 @@ object IronPatterns {
     //ELEMENTS!!!
     // SPIRIT
     val schoolSpiritEntry = ActionRegistryEntry(
-        HexPattern.fromAngles("waqqqqqwaeaeaeaeaea", HexDir.SOUTH_EAST),
+        HexPattern.fromAngles("qaqqqqqwqqq", HexDir.SOUTH_WEST),
         ElementalAction("spirit")
     )
     r.accept(spawnPatternEntry, ResourceLocation.fromNamespaceAndPath("hexxyspells", "schoolspirit"))
 
     // FIRE
     val schoolFireEntry = ActionRegistryEntry(
-        HexPattern.fromAngles("wqqqqa", HexDir.SOUTH_EAST),
+        HexPattern.fromAngles("wqqqqa", HexDir.SOUTH_WEST),
         ElementalAction("fire")
     )
     r.accept(schoolFireEntry, ResourceLocation.fromNamespaceAndPath("hexxyspells", "schoolfire"))
 
     // WATER
     val schoolWaterEntry = ActionRegistryEntry(
-        HexPattern.fromAngles("wqqqqw", HexDir.NORTH_WEST),
+        HexPattern.fromAngles("wqqqqw", HexDir.SOUTH_WEST),
         ElementalAction("water")
     )
     r.accept(schoolWaterEntry, ResourceLocation.fromNamespaceAndPath("hexxyspells", "schoolwater"))
 
     // EARTH
     val schoolEarthEntry = ActionRegistryEntry(
-        HexPattern.fromAngles("aqawwawwaw", HexDir.SOUTH_WEST),
+        HexPattern.fromAngles("aqawwawwaw", HexDir.SOUTH_EAST),
         ElementalAction("earth")
     )
     r.accept(schoolEarthEntry, ResourceLocation.fromNamespaceAndPath("hexxyspells", "schoolearth"))
@@ -146,7 +146,7 @@ object IronPatterns {
 
     // DARK
     val schoolDarkEntry = ActionRegistryEntry(
-        HexPattern.fromAngles("qaqqqqqwqqqeaeaeaeadaeaeaea", HexDir.EAST),
+        HexPattern.fromAngles("qaqqqqqwqqqeaeaeaeadaeaeaea", HexDir.SOUTH_WEST),
         ElementalAction("dark")
     )
     r.accept(schoolDarkEntry, ResourceLocation.fromNamespaceAndPath("hexxyspells", "schooldark"))

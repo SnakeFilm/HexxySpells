@@ -371,7 +371,6 @@ class ChannelingEffectEntity(
                             velocity = velocity.add(pushOut).add(pullBack)
                         }
 
-                        // Слой 1: Базовый каркас ветра (всегда)
                         serverLevel.sendParticles(
                             ParticleTypes.CLOUD,
                             particlePos.x,
@@ -384,7 +383,6 @@ class ChannelingEffectEntity(
                             1.0
                         )
 
-                        // Слой 2: Водный вихрь
                         if (useWaterParticle) {
                             if (random.nextFloat() > 0.3f) {
                                 serverLevel.sendParticles(
@@ -413,11 +411,7 @@ class ChannelingEffectEntity(
                                 )
                             }
                         }
-                        // Слой 3: МНОГО частиц блоков земли/песка (если блок прошел фильтр)
                         else if (mainEnvironmentParticle != null) {
-                            // Вместо count = 0 (символизирующего скорость) ставим count = 3.
-                            // Это заставит Майнкрафт спавнить по 3 частицы за раз.
-                            // Параметр 0.15 — это небольшой случайный разброс (X, Y, Z), чтобы они не летели строго в одну точку, а создавали объем.
                             serverLevel.sendParticles(
                                 mainEnvironmentParticle,
                                 particlePos.x, particlePos.y, particlePos.z,
@@ -427,7 +421,6 @@ class ChannelingEffectEntity(
                             )
                         }
 
-                        // Слой 4: Зеленые Листья
                         if (useLeafParticle && random.nextFloat() > 0.2f) {
                             serverLevel.sendParticles(
                                 leafParticle,
@@ -444,7 +437,6 @@ class ChannelingEffectEntity(
                     }
                 }
             } else if (elementId == "air" && spellIndex == 3) {
-                // ВОЗДУХ 3: ТВОЙ ЦИКЛОН ЗАСАСЫВАНИЯ
                 val centerOfCyclone = start.add(dir.scale(4.0))
                 val particleCount = 4
 
@@ -472,7 +464,6 @@ class ChannelingEffectEntity(
             }
 
             else {
-                // ДЛЯ ВСЕХ ОСТАЛЬНЫХ МАГИЙ: СТАНДАРТНЫЙ ПРОСЧЕТ ЛУЧЕЙ (Огонь, Лед и т.д.)
                 val steps = 10
                 for (i in 1..steps) {
                     val pos = start.lerp(end, i / steps.toDouble())
@@ -488,7 +479,6 @@ class ChannelingEffectEntity(
                 }
             }
 
-            // ЗВУКОВОЕ СОПРОВОЖДЕНИЕ (Вынесено из условий частиц, поет всегда!)
             val spellSound = getSoundEvent()
             if (spellSound != null && this.tickCount % 30 == 1) {
                 level().playSound(
@@ -503,14 +493,11 @@ class ChannelingEffectEntity(
                 )
             }
 
-            // СПАВН И АКТУАЛИЗАЦИЯ СУЩНОСТЕЙ ДЛЯ ВСЕХ МОДЕЛЕЙ (Вынесено из условий!)
             val visualType = getVisualEntityType()
             if (visualType != null) {
                 val isSunbeam = visualType.toString().contains("sunbeam")
 
-                // Вычисляем позицию спавна
                 val visualSpawnPos = if (isSunbeam) {
-                    // Трассируем луч до блока для Sunbeam
                     val rayTraceRange = 32.0
                     val hitResult = currentCaster.level().clip(
                         net.minecraft.world.level.ClipContext(
@@ -523,7 +510,6 @@ class ChannelingEffectEntity(
                     )
                     hitResult.location
                 } else {
-                    // Обычные лучи привязаны к руке
                     start.subtract(0.0, 0.5, 0.0)
                 }
 
@@ -542,10 +528,8 @@ class ChannelingEffectEntity(
 
                         entity.moveTo(visualSpawnPos.x, visualSpawnPos.y, visualSpawnPos.z, currentCaster.yRot, currentCaster.xRot)
 
-                        // Фикс урона Sunbeam: выставляем через правильное поле и расширяем радиус AOE, чтобы точно задевало
                         if (isSunbeam && entity is io.redspace.ironsspellbooks.entity.spells.sunbeam.SunbeamEntity) {
                             entity.setRadius(1.5f)
-                            // Используем встроенный унаследованный сеттер урона из AoeEntity/AbstractMagicProjectile
                             entity.damage = (power * 0.5).toFloat()
                         }
 
@@ -560,10 +544,7 @@ class ChannelingEffectEntity(
                         entity.moveTo(visualSpawnPos.x, visualSpawnPos.y, visualSpawnPos.z, currentCaster.yRot, currentCaster.xRot)
 
                         if (isSunbeam && entity is io.redspace.ironsspellbooks.entity.spells.sunbeam.SunbeamEntity) {
-                            // На всякий случай обновляем урон на лету, если power динамический
                             entity.damage = (power * 0.5).toFloat()
-
-                            // ХАК ВРЕМЕНИ: Удерживаем луч активным
                             if (entity.tickCount >= 15) {
                                 entity.tickCount = 14
                             }

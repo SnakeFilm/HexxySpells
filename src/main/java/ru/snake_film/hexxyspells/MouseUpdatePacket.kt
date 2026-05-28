@@ -6,14 +6,14 @@ import java.util.function.Supplier
 
 class MouseUpdatePacket(val button: Int, val pressed: Boolean) {
 
-    // Запись в буфер
+
     fun encode(buf: FriendlyByteBuf) {
         buf.writeInt(button)
         buf.writeBoolean(pressed)
     }
 
     companion object {
-        // Чтение из буфера
+
         fun decode(buf: FriendlyByteBuf): MouseUpdatePacket {
             return MouseUpdatePacket(buf.readInt(), buf.readBoolean())
         }

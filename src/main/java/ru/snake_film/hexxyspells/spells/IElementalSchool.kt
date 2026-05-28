@@ -28,7 +28,7 @@ interface IElementalSchool {
     fun getIronSchool(): SchoolType
     fun getManaCost(power: Double, index: Int): Float
     fun getMediaCost(power: Double, index: Int): Long {
-        return power.pow(2).toLong()
+        return (power.pow(2).toLong())*0.5.toLong()
     }
     fun getBehavior(index: Int): BeamUtils.BeamType
 }

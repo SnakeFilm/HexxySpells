@@ -15,10 +15,10 @@ object ManaMediaCost {
         // Централизованный расчет стоимости
         fun getManaCost(type: String, power: Double, index: Int, extra: Double = 0.0): Float {
             return when (type) {
-                TYPE_POINT -> (power.pow(2) + extra / 5f).toFloat() // extra здесь — дистанция
-                TYPE_PROJECTILE -> (power.pow(2) * 1f).toFloat()
-                TYPE_CONTINUOUS -> (power.pow(2) * 0.5f).toFloat()
-                TYPE_INSTANT -> (power.pow(2) * 1f).toFloat()
+                TYPE_POINT -> (power.pow(2)* 0.5f + extra / 5f).toFloat() // extra здесь — дистанция
+                TYPE_PROJECTILE -> (power.pow(2) * 0.5f).toFloat()
+                TYPE_CONTINUOUS -> (power.pow(2) * 0.1f).toFloat()
+                TYPE_INSTANT -> (power.pow(2) * 0.5f).toFloat()
                 else -> 0f
             }
         }

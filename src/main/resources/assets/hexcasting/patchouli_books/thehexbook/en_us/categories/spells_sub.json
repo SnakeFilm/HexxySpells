@@ -1,0 +1,7 @@
+{
+  "name": "hexcasting.category.hexxyspells:spells_sub",
+  "description": "hexcasting.category.hexxyspells:spells_sub.desc",
+  "parent": "hexcasting:main_category",
+  "icon": "minecraft:amethyst_shard",
+  "sortnum": 3
+}

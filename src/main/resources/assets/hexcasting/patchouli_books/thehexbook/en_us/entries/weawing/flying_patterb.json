@@ -1,0 +1,15 @@
+{
+  "name": "hexcasting.action.hexxyspells:spawn_flying_pattern",
+  "category": "hexcasting:weaving_sub",
+  "icon": "minecraft:phantom_membrane",
+  "pages": [
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexxyspells:spawn_flying_pattern",
+      "anchor": "hexxyspells:spawn_flying_pattern",
+      "input": "[list]",
+      "output": "[]",
+      "text": "hexcasting.page.hexxyspells:spawn_flying_pattern.desc"
+    }
+  ]
+}

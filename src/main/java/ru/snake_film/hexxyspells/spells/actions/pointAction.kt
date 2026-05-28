@@ -34,7 +34,7 @@ object pointAction : SpellAction {
 
 
         val distance = player.eyePosition.distanceTo(pointPos)
-        val power = rawPower.toFloat()
+        val power = rawPower.toFloat()*0.3f
 
 
         if (!ManaMediaCost.checkAndConsume(player, ManaMediaCost.TYPE_POINT, power.toDouble(), spellIndex, distance)) {

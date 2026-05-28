@@ -1,0 +1,7 @@
+{
+  "name": "hexcasting.category.hexxyspells:weaving_sub",
+  "description": "hexcasting.category.hexxyspells:weaving_sub.desc",
+  "parent": "hexcasting:main_category",
+  "icon": "minecraft:string",
+  "sortnum": 2
+}

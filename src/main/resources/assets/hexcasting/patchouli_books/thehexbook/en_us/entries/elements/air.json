@@ -1,0 +1,15 @@
+{
+  "name": "hexcasting.action.hexxyspells:schoolair",
+  "category": "hexcasting:elements_sub",
+  "icon": "minecraft:feather",
+  "pages": [
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexxyspells:schoolair",
+      "anchor": "hexxyspells:schoolair",
+      "input": "[]",
+      "output": "[]",
+      "text": "hexcasting.page.hexxyspells:schoolair.desc"
+    }
+  ]
+}

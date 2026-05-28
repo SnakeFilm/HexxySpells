@@ -63,7 +63,7 @@ object EarthElement : IElementalSchool {
                             world.addFreshEntity(earthquake)
                         }
                     }
-                    2 -> { // Оплетение Корнями (Root Entity)
+                    2 -> { // (Root Entity)
                         val rootZone = io.redspace.ironsspellbooks.registries.EntityRegistry.ROOT.get().create(world)
                         if (rootZone != null) {
                             rootZone.owner = caster
@@ -71,7 +71,7 @@ object EarthElement : IElementalSchool {
                             world.addFreshEntity(rootZone)
                         }
                     }
-                    3 -> { // Токсичное Облако (Poison Cloud)
+                    3 -> { // (Poison Cloud)
                         val poisonCloud = io.redspace.ironsspellbooks.registries.EntityRegistry.POISON_CLOUD.get().create(world)
                         if (poisonCloud != null) {
                             poisonCloud.owner = caster

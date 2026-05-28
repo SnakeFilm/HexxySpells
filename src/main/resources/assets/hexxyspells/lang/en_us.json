@@ -1,0 +1,46 @@
+{
+  "hexcasting.category.hexxyspells:main_category": "Elemental Hexes",
+  "hexcasting.category.hexxyspells:main_category.desc": "A system of weaving environmental elements with the mathematical precision of hexes. THIS IS ALPHA!  (I was use LLM to translate. Don't trust this book)",
+
+  "hexcasting.category.hexxyspells:elements_sub": "Forces & Elements",
+  "hexcasting.category.hexxyspells:elements_sub.desc": "Patterns used to attune your inner focus to a specific energy type. Modifies subsequent spell behaviors.",
+
+  "hexcasting.category.hexxyspells:weaving_sub": "Art of Weaving",
+  "hexcasting.category.hexxyspells:weaving_sub.desc": "Methods of projecting your will into the physical world. Forms stable constructs and flying hexagonal matrices.",
+
+  "hexcasting.category.hexxyspells:spells_sub": "Spell Forms",
+  "hexcasting.category.hexxyspells:spells_sub.desc": "Universal matrices that direct the active element into a physical manifestation.",
+
+  "hexcasting.action.hexxyspells:schoolspirit": "Attunement: Spirit",
+  "hexcasting.page.hexxyspells:schoolspirit.desc": "Attunes focus to Spirit energy. Changes subsequent spell forms to the Spirit element.$(br2)Cost: 0 Media",
+
+  "hexcasting.action.hexxyspells:schoolfire": "Attunement: Fire",
+  "hexcasting.page.hexxyspells:schoolfire.desc": "Attunes focus to Fire energy. Changes subsequent spell forms to the Fire element.$(br2)Cost: 0 Media",
+
+  "hexcasting.action.hexxyspells:schoolwater": "Attunement: Water",
+  "hexcasting.page.hexxyspells:schoolwater.desc": "Attunes focus to Water energy. Changes subsequent spell forms to the Water element.$(br2)Cost: 0 Media",
+
+  "hexcasting.action.hexxyspells:schoolearth": "Attunement: Earth",
+  "hexcasting.page.hexxyspells:schoolearth.desc": "Attunes focus to Earth energy. Changes subsequent spell forms to the Earth element.$(br2)Cost: 0 Media",
+
+  "hexcasting.action.hexxyspells:schoolair": "Attunement: Air",
+  "hexcasting.page.hexxyspells:schoolair.desc": "Attunes focus to Air energy. Changes subsequent spell forms to the Air element.$(br2)Cost: 0 Media",
+
+  "hexcasting.action.hexxyspells:schooldark": "Attunement: Dark",
+  "hexcasting.page.hexxyspells:schooldark.desc": "Attunes focus to Dark energy. Changes subsequent spell forms to the Dark element. Deals 1.5 times more damage. They say those who use the Dark gradually go insane... (WIP)$(br2)Cost: 0 Media",
+
+  "hexcasting.action.hexxyspells:spawn_flying_pattern": "Summon Flying Pattern",
+  "hexcasting.page.hexxyspells:spawn_flying_pattern.desc": "Releases a flying hexagonal matrix into the world. $(br2)Accepts from stack: $(br)• Pattern List (LIST)$(br2)Cost: 3 Media Dust",
+
+  "hexcasting.action.hexxyspells:projectile": "Form: Projectile",
+  "hexcasting.page.hexxyspells:projectile.desc": "Shapes a directed bolt of the active element. Deals damage equal to power. • Cost: Half of the power squared",
+
+  "hexcasting.action.hexxyspells:pointaction": "Form: Point Explosion",
+  "hexcasting.page.hexxyspells:pointaction.desc": "Triggers an instantaneous energy release at specific coordinates. Deals damage equal to power. • Cost: Half of the power squared",
+
+  "hexcasting.action.hexxyspells:continuousaction": "Form: Continuous Stream",
+  "hexcasting.page.hexxyspells:continuousaction.desc": "A channeled beam or cone in the look direction. Deals damage equal to power.  • Cost: Half of the power squared",
+
+  "hexcasting.action.hexxyspells:instantaction": "Form: Instant",
+  "hexcasting.page.hexxyspells:instantaction.desc": "Manifests the spell through an instantaneous summoning of a magical object or minion at the target position. Deals damage equal to power. • Cost: Half of the power squared"
+}

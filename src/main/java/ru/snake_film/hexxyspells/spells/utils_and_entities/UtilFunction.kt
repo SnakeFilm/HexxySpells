@@ -156,11 +156,10 @@ object BeamUtils {
                 }
 
                 2 -> {
-                    // Sunbeam (Урон полностью обрабатывается внутренним кодом SunbeamEntity)
                     return
                 }
 
-                3 -> { // Starfall (Периодический АОЕ-урон в точке прицела)
+                3 -> {
                     if (caster.tickCount % 4 == 0) {
                         val rayTraceRange = 32.0
                         val hitResult = world.clip(
@@ -174,7 +173,6 @@ object BeamUtils {
                         )
                         val targetCenter = hitResult.location
 
-                        // Ищем цели в кубе 12x8x12 (радиус 6 в стороны от центра)
                         val aoeTargets = world.getEntitiesOfClass(LivingEntity::class.java, net.minecraft.world.phys.AABB(
                             targetCenter.x - 6.0, targetCenter.y - 3.0, targetCenter.z - 6.0,
                             targetCenter.x + 6.0, targetCenter.y + 5.0, targetCenter.z + 6.0
@@ -190,9 +188,6 @@ object BeamUtils {
             }
         }
 
-        // ==========================================
-        // 5. БАЗОВАЯ ЛОГИКА ДЛЯ ОСТАЛЬНЫХ ЛУЧЕЙ
-        // ==========================================
         when (type) {
             BeamType.BEAM -> {
                 val hit = ProjectileUtil.getHitResultOnViewVector(caster, { it is LivingEntity && it != caster }, 20.0)
@@ -226,7 +221,6 @@ object BeamUtils {
                             target.hurtMarked = true
                         }
 
-                        // МОРОЗ (4) - Замеляем
                         if (school == WaterElement && index == 4) {
                             target.addEffect(net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN, 40, 1))
                         }

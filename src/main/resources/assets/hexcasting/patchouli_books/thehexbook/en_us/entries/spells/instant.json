@@ -1,0 +1,15 @@
+{
+  "name": "hexcasting.action.hexxyspells:instantaction",
+  "category": "hexcasting:spells_sub",
+  "icon": "minecraft:iron_golem_spawn_egg",
+  "pages": [
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexxyspells:instantaction",
+      "anchor": "hexxyspells:instantaction",
+      "input": "[INT, NUM, VEC]",
+      "output": "[]",
+      "text": "hexcasting.page.hexxyspells:instantaction.desc"
+    }
+  ]
+}
